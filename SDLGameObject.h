@@ -4,8 +4,6 @@
 
 #include "GameObject.h"
 #include "TextureManager.h"
-#include "Game.h"
-
 
 class SDLGameObject : public GameObject {
 public:
