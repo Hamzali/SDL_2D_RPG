@@ -1,7 +1,6 @@
 #ifndef __SDL_GAME_OBJECT__
 #define  __SDL_GAME_OBJECT__
 
-
 #include "GameObject.h"
 #include "TextureManager.h"
 
