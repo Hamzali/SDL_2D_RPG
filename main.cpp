@@ -12,7 +12,7 @@ int main(int argc, char const *argv[]) {
 
             SDL_Delay(10);
         }
-        
+
     }else {
         std::cout << "Could not init the SDL!" << std::endl;
         return -1;
