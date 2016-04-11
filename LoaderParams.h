@@ -15,8 +15,6 @@ public:
 
 
 private:
-    std::string m_textureID;
-
     // Location of the object.
     int m_x;
     int m_y;
@@ -24,6 +22,8 @@ private:
     // Size of the object.
     int m_width;
     int m_height;
+
+    std::string m_textureID;
 
     int m_currentRow;
     int m_currentFrame;

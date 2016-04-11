@@ -23,12 +23,12 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
                         SDL_SetRenderDrawColor(m_pRenderer, 255, 255, 255, 255); // renderer and RGBA
 
                         // Our instance of TextureManager class, loads the image.
-
                         if(!TextureManager::Instance() -> load("assets/man.png", "man", m_pRenderer)){
                             std::cout << "Can't load the texture." << std::endl;
                             return false;
                         }
 
+                        // load the game objects.
                         m_gameobjects.push_back(new Enemy(new LoaderParams(0, 0, 104, 156, "man")));
                         m_gameobjects.push_back(new Player(new LoaderParams(100, 100, 104, 156, "man")));
 
@@ -59,7 +59,8 @@ void Game::render()
     // Clear the screen.
     SDL_RenderClear(m_pRenderer);
 
-    for(int i = 0; i < m_gameobjects.size(); i++){
+    int size = m_gameobjects.size();
+    for(int i = 0; i < size; i++){
         m_gameobjects[i] -> draw();
     }
     // Draw color to the screen.
@@ -69,8 +70,10 @@ void Game::render()
 
 void Game::update()
 {
+
         // in every 100 mili seconds change the frame.
-        for(int i = 0; i < m_gameobjects.size(); i++){
+        int size = m_gameobjects.size();
+        for(int i = 0; i < size; i++){
             m_gameobjects[i] -> update();
         }
 

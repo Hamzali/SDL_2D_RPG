@@ -7,7 +7,8 @@ bool TextureManager::load(std::string fileName, std::string id, SDL_Renderer* pR
 {
     SDL_Surface* pTempSurface = IMG_Load(fileName.c_str());
 
-    if(pTempSurface == NULL){
+    if(pTempSurface == NULL)
+    {
         std::cout << "Can't load the image." << std::endl;
         return false;
     }
