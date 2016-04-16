@@ -9,7 +9,7 @@
 
 #include <iostream>
 
-class GameObject{
+class GameObject{  
 
 public:
     virtual void draw() = 0;

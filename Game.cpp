@@ -32,12 +32,12 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
                         m_gameobjects.push_back(new Enemy(new LoaderParams(0, 0, 104, 156, "man")));
                         m_gameobjects.push_back(new Player(new LoaderParams(100, 100, 104, 156, "man")));
 
+                        SDLGameObject*  s = (SDLGameObject*)m_gameobjects[0];
+                        s -> setVelocity(1, 1);
                     }else{
-
                         std::cout << "Renderer init failed!" << std::endl;
                         return false;
                     }
-
             }else{
                 std::cout << "Window init failed!" << std::endl;
                 return false;
