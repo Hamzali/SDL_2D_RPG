@@ -17,11 +17,11 @@ public:
     float getX() const {return m_x;}
     float getY() const {return m_y;}
 
-    void setX(const float x) {m_x = x;}
-    void setY(const float y) {m_y = y;}
+    void setX(float x) {m_x = x;}
+    void setY(float y) {m_y = y;}
 
-    void setX(const int x) {m_x = (float)x;}
-    void setY(const int y) {m_y = (float)y;}
+    void setX(int x) {m_x = (float)x;}
+    void setY(int y) {m_y = (float)y;}
 
     //Static members.
 
@@ -85,13 +85,9 @@ public:
         return *this;
     }
 
-
-
-
 private:
     float m_x;
     float m_y;
 };
-
 
 #endif

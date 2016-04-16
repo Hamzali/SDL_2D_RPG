@@ -7,6 +7,7 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include <utility>
 
 #include "TextureManager.h"
 #include "Player.h"
@@ -16,30 +17,32 @@ class Game{
 
 public:
 
-    bool init(const char* title, int xpos, int ypos, int height, int width, int flags);
 
+    // Member functions.
     void render();
     void update();
     void handleEvent();
     void clean();
+    void quit();
     bool isRunnig() const {return m_bRunnig;}
+
+    // Getters and Setters.
+    bool init(const char* title, int xpos, int ypos, int height, int width, int flags);
     SDL_Renderer* getRenderer() const {return m_pRenderer;}
 
     // singleton structure.
     static Game* Instance()
     {
-        if(s_pInstance == 0){
+        if(s_pInstance == 0)
             s_pInstance = new Game();
-            return s_pInstance;
-        }
 
         return s_pInstance;
     }
 
 private:
     Game(){}
-    static Game* s_pInstance;
     ~Game();
+    static Game* s_pInstance;
 
     SDL_Window* m_pWindow;
     SDL_Renderer* m_pRenderer;
@@ -54,5 +57,7 @@ private:
 
     std::vector<GameObject*> m_gameobjects;
 };
+
+typedef Game TheGame;
 
 #endif
