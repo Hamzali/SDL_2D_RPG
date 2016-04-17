@@ -56,8 +56,12 @@ private:
         // initialising mouse buttons.
         for (int i = 0; i < 3; i++)
             m_mouseButtonStates.push_back(false);
+        m_mousePosition = new Vector2D();
 
+        m_bJoystickInit = false;
         m_joystickDeadZone = 1000;
+
+        m_keyStates = NULL;
     }
     ~InputHandler(){}
 
@@ -78,7 +82,7 @@ private:
 
     // Mouse values and functions.
     std::vector<bool> m_mouseButtonStates;
-    Vector2D* m_mousePosition;
+    Vector2D *m_mousePosition;
 
     void onMouseMove(SDL_Event& event);
     void onMouseButtonDown(SDL_Event& event);

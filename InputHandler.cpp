@@ -101,7 +101,7 @@ void InputHandler::update()
                 onJoystickButtonUp(event);
                 break;
             case SDL_MOUSEMOTION:
-                //TODO: fix this onMouseMove(event);
+                onMouseMove(event);
                 break;
             case SDL_MOUSEBUTTONDOWN:
                 onMouseButtonDown(event);
@@ -212,10 +212,8 @@ void InputHandler::onMouseButtonUp(SDL_Event& event)
 
 void InputHandler::onMouseMove(SDL_Event& event)
 {
-    float x = event.motion.x;
-    float y = event.motion.y;
-    m_mousePosition->setX(x);
-    m_mousePosition->setY(y);
+    m_mousePosition->setX(event.motion.x);
+    m_mousePosition->setY(event.motion.y);
 }
 
 void InputHandler::onKeyDown()
