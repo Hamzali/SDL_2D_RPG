@@ -24,6 +24,7 @@ public:
     void setAccel(const Vector2D& v) {m_Accel = v;}
     void setAccel(float x, float y) {m_Accel.setX(x); m_Accel.setY(y);}
 
+<<<<<<< HEAD
     int getWidth() {return m_width;}
     int getHeight() {return m_height;}
 
@@ -33,6 +34,16 @@ public:
     Vector2D getAccel() const {return m_Accel;}
 
 protected:
+=======
+    Vector2D getPosition() const{return m_Position;}
+    Vector2D getVelocity() const {return m_Velocity;}
+    Vector2D getAccel() const {return m_Accel;}
+
+
+
+protected:
+    Vector2D m_Position;
+>>>>>>> hamza
     Vector2D m_Velocity;
     Vector2D m_Accel;
 

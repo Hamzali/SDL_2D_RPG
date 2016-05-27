@@ -9,7 +9,7 @@
 
 #include <iostream>
 
-class GameObject{
+class GameObject{  
 
 public:
     GameObject(const LoaderParams* pParams){}

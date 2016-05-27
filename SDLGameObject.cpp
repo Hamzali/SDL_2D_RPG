@@ -21,10 +21,18 @@ void SDLGameObject::draw()
         m_currentRow, m_currentFrame, Game::Instance() -> getRenderer());
 }
 
+<<<<<<< HEAD
 void SDLGameObject::update(int delta)
 {
     m_Position += m_Velocity * delta/1000;
     m_Velocity += m_Accel * delta/1000;
+=======
+void SDLGameObject::update()
+{
+    m_Position += m_Velocity;
+    m_Velocity += m_Accel;
+
+>>>>>>> hamza
 }
 
 void SDLGameObject::clean()
