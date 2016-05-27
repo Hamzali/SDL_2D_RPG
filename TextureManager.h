@@ -30,16 +30,20 @@ class TextureManager{
             return s_pInstance;
 
         }
-
+        void freeTexture(std::string id){
+            SDL_DestroyTexture(m_TextureMap[id]);
+        }
 
 
     private:
         // To secure the class for costructing somewhere else.
         TextureManager(){}
 
-        // For making this class can be accessable without contructing.
+        // For making this class can be accessable without constructing.
         static TextureManager* s_pInstance;
 
         std::map<std::string, SDL_Texture*> m_TextureMap;
 };
+
+typedef TextureManager TheTextureManager;
 #endif

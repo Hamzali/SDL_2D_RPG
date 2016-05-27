@@ -1,8 +1,10 @@
 CC =g++
-CFLAGS=-g -Wall
-LDFLAGS=-lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
-INC=-I/usr/local/include
-LIB=-L/usr/local/lib
+CFLAGS=-g
+LDFLAGS=-lSDL2 -lSDL2_image -lSDL2_ttf -lalut
+OPENALLIB=-L/usr/local/opt/openal-soft/lib
+OPENALINC=-I/usr/local/opt/openal-soft/include
+SDLINC=-I/usr/local/include
+SDLLIB=-L/usr/local/lib
 
 SRC=main.cpp \
 	Game.cpp \
@@ -12,8 +14,11 @@ SRC=main.cpp \
 	TextureManager.cpp \
 	SDLGameObject.cpp \
 	InputHandler.cpp \
+	MenuState.cpp \
+	button.cpp \
+
 
 all: main
 
 main:
-	 $(CC)  $(CFLAGS) $(SRC) $(INC) $(LIB) $(LDFLAGS) -o bin/pr
+	 $(CC)  $(CFLAGS) $(SRC) $(SDLINC) $(SDLLIB) $(OPENALINC) $(OPENALLIB) $(LDFLAGS) -o bin/pr

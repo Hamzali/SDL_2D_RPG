@@ -6,31 +6,21 @@
 #include <stdlib.h>
 #include <time.h>
 
+class Button;
+
 class GameManager {
 public:
 	void init(const char *title, const int fps);
 
-	void update(int delta);
-
-	void initPlayers();
-
-	void begin();
-
-	void pause() {
-		m_play =false;
-	}
-
 	void initDisplay();
 
-	void initSpawner();
-
-	void setMood(int type, bool flag);
-
-	void swapControls() {
-
+	void update(int delta);
+	void begin() {
+		m_play = true;
 	}
-
-	GameObject* addObject(GameObject* obj, int index = -1);
+	void pause() {
+		m_play = false;
+	}
 
 	static GameManager* Instance()
     {
@@ -62,7 +52,6 @@ private:
 
 	int m_fps;
 	float m_delay_time;
-
 };
 
 #endif

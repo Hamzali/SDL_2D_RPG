@@ -6,6 +6,8 @@
 
 #include "Game.h"
 
+#include "MenuState.h"
+
 Game* Game::s_pInstance = 0;
 
 bool Game::init(const char* title, int xpos, int ypos, int width, int height, int flags)
@@ -55,7 +57,7 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
 
     // -----YOUR GAME VARS
     m_pGameStateMachine = new GameStateMachine();
-    //m_pGameStateMachine -> changeState(new MenuState());
+    m_pGameStateMachine -> changeState(new MenuState());
 
 
     // ~~~~~
@@ -98,12 +100,12 @@ void Game::quit()
 
 void Game::clean()
 {
-
     std::cout << "Cleaning the game!" << std::endl;
     TheInputHandler::Instance() -> clean();
 
     SDL_DestroyWindow(m_pWindow);
     SDL_DestroyRenderer(m_pRenderer);
+
     for(int i = 0; i < (int)m_Musics.size(); i++){
         TheAudioManager::Instance() -> freeMusic(m_Musics[i]);
     }
@@ -112,6 +114,9 @@ void Game::clean()
         TheAudioManager::Instance() -> freeSound(m_Sounds[i]);
     }
 
+    for(int i = 0; i < (int)m_Textures.size(); i++){
+        TheTextureManager::Instance() -> freeTexture(m_Textures[i]);
+    }
 }
 
 bool Game::loadTexture(std::string id, std::string ext)
@@ -147,6 +152,7 @@ bool Game::loadMusic(std::string id)
 
 // Add your assets through this function.
 bool Game::assetLoader(){
-    return loadTexture("man", "png") //&&
+    return loadTexture("man", "png") &&
+    loadTexture("button", "png")
     ;
 }

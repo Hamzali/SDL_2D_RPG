@@ -27,12 +27,13 @@ public:
     int getWidth() {return m_width;}
     int getHeight() {return m_height;}
 
-    Vector2D m_Position;
-    //Vector2D getPosition() const{return new Vector2D(m_Position.getX(), m_Position.getY());}
+
+    Vector2D getPosition() const{return m_Position;}
     Vector2D getVelocity() const {return m_Velocity;}
     Vector2D getAccel() const {return m_Accel;}
 
 protected:
+    Vector2D m_Position;
     Vector2D m_Velocity;
     Vector2D m_Accel;
 
