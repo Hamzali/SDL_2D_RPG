@@ -3,7 +3,9 @@
 
 #include <SDL2/SDL.h>
 
-#include "Game.h"
+#include "Vector2D.h"
+//#include "Game.h"
+#include <map>
 
 enum mouse_buttons{
         LEFT = 0,
@@ -46,11 +48,6 @@ public:
     // Keyboard stuff.
     bool isKeyDown(SDL_Scancode key);
 
-
-
-
-
-
 private:
     InputHandler(){
         // initialising mouse buttons.
@@ -59,6 +56,7 @@ private:
         m_mousePosition = new Vector2D();
 
         m_bJoystickInit = false;
+        // Joystick sensitivity.
         m_joystickDeadZone = 1000;
 
         m_keyStates = NULL;
@@ -91,8 +89,10 @@ private:
     // Keyboard
     Uint8* m_keyStates;
 
-    void onKeyDown();
-    void onKeyUp();
+    std::map<SDL_Scancode, bool> m_keys;
+
+    void onKeyDown(SDL_Scancode pressed);
+    void onKeyUp(SDL_Scancode pressed);
 
 };
 

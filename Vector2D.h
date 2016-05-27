@@ -1,7 +1,6 @@
 #ifndef _VECTOR_2D_
 #define _VECTOR_2D_
 
-<<<<<<< HEAD
 #include <fstream>
 #include <iostream>
 #include <stdlib.h>
@@ -13,24 +12,14 @@
 #define DEG_TO_RAD 0.017453
 #define RAD_TO_DEG 57.295779
 
-=======
-#include <math.h>
->>>>>>> hamza
 
 class Vector2D{
 public:
     // Constructor and Destructor.
-<<<<<<< HEAD
     Vector2D(){m_x = 0;m_y = 0;m_cosin = false;sw = 0; sh = 0;}
     Vector2D(int x, int y){m_x = (float)x; m_y = (float)y; sw = 0; sh = 0;m_cosin = false;}
     Vector2D(float x, float y){m_x = x; m_y = y; sw = 0; sh = 0;m_cosin = false;}
     Vector2D(const Vector2D& v) {m_x = v.getX(); m_y = v.getY();sw = 0; sh = 0;m_cosin = false;}
-=======
-    Vector2D() : m_x(0), m_y(0) {}
-    Vector2D(int x, int y){m_x = (float)x; m_y = (float)y;}
-    Vector2D(float x, float y) : m_x(x), m_y(y) { }
-    Vector2D(const Vector2D& v) {m_x = v.getX(); m_y = getY();}
->>>>>>> hamza
 
     ~Vector2D(){}
 
@@ -44,16 +33,29 @@ public:
     void setX(int x) {m_x = (float)x;}
     void setY(int y) {m_y = (float)y;}
 
-<<<<<<< HEAD
     void set(const Vector2D& v) {m_x = v.getX(); m_y = v.getY();}
 
     //Static members.
+    
+    /*
+    static std::vector<float> m_c;
+    static std::vector<float> m_s;
 
-=======
-    //Static members.
+    static void loadCosin() {
+        std::ifstream cosin;
+        std::string val;
+        cosin.open("assets/cosin.bin");
+        for(int i = 0; i < 360; ++i) {
+            getline(cosin, val, ',');
+            Vector2D::m_s.push_back(atof(val.c_str()));
+            getline(cosin, val, ',');
+            Vector2D::m_c.push_back(atof(val.c_str()));
+        }
+        printf("Loaded sin/cos\n");
+    }
+    */
+    
 
-
->>>>>>> hamza
     // Member Functions.
     float length() const {return sqrt(m_x * m_x + m_y * m_y);}
 
@@ -62,7 +64,6 @@ public:
         if(l > 0) (*this) *= 1 / l;
     }
 
-<<<<<<< HEAD
     void loadCosin() {
         std::ifstream cosin;
         std::string val;
@@ -72,7 +73,7 @@ public:
             m_s.push_back(atof(val.c_str()));
             getline(cosin, val);
             m_c.push_back(atof(val.c_str()));
-
+            
         }
         cosin.close();
         m_cosin = true;
@@ -84,11 +85,12 @@ public:
     int angleTo(const Vector2D& v) {
         return RAD_TO_DEG * atan2((v.m_y-m_y), (v.m_x - m_x));
     }
-
+    
 
     void setToDistance(const Vector2D& v, float distance, int angle) {
 
         if(!m_cosin) return;
+        //printf("LOL\n");
         int pmx = m_x;
         int pmy = m_y;
         m_x = v.m_x + distance * getCos(angle);//cos(DEG_TO_RAD * angle);
@@ -101,8 +103,6 @@ public:
         }
     }
 
-=======
->>>>>>> hamza
     // Operator overloades.
     // Sum
     Vector2D operator+(const Vector2D& v) const
@@ -154,7 +154,6 @@ public:
         return *this;
     }
 
-<<<<<<< HEAD
     int sw;
     int sh;
 
@@ -170,11 +169,4 @@ private:
     std::vector<float> m_c;
     std::vector<float> m_s;
 };
-=======
-private:
-    float m_x;
-    float m_y;
-};
-
->>>>>>> hamza
 #endif
