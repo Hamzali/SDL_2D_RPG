@@ -3,7 +3,7 @@
 
 
 #include <SDL2/SDL.h>
-#include<SDL2/SDL_image.h>
+#include <SDL2/SDL_image.h>
 #include "TextureManager.h"
 #include "LoaderParams.h"
 
@@ -12,13 +12,14 @@
 class GameObject{
 
 public:
+    GameObject(const LoaderParams* pParams){}
     virtual void draw() = 0;
-    virtual void update() = 0;
+    virtual void update(int delta) = 0;
     virtual void clean() = 0;
 
-protected:
-    GameObject(const LoaderParams* pParams){}
     virtual ~GameObject(){}
+protected:
+
 
 };
 

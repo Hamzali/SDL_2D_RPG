@@ -1,23 +1,10 @@
-#include "Game.h"
+#include "GameManager.h"
+
+const int FPS = 60;
+const int DELAY_TIME = 1000 / FPS;
 
 int main(int argc, char const *argv[]) {
-
-    if(Game::Instance() -> init("Win", 100, 100, 640, 480, SDL_WINDOW_RESIZABLE)){
-
-        while(Game::Instance() -> isRunnig()){
-
-            Game::Instance() -> render();
-            Game::Instance() -> update();
-            Game::Instance() -> handleEvent();
-
-            SDL_Delay(10);
-        }
-        
-    }else {
-        std::cout << "Could not init the SDL!" << std::endl;
-        return -1;
-    }
-
-    Game::Instance() -> clean();
+    // To control the fixed frame rate of the program.
+    GameManager::Instance() -> init("Win", FPS);
     return 0;
 }
