@@ -1,7 +1,7 @@
 #ifndef __GAME_MANAGER__
 #define __GAME_MANAGER__
 
-#include "Player.h"
+#include "GameObject.h"
 #include "Vector2D.h"
 #include <stdlib.h>
 #include <time.h>
